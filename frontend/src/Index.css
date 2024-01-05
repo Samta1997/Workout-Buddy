@@ -49,6 +49,17 @@ header a{
 .workout-details p{
   font-size: 14px;
 }
+.workout-details span{
+  font-size: 250%;
+  color: var(--error);
+  position:absolute;
+  cursor: pointer;
+  top: 20px;
+  right: 20px;
+
+
+}
+
 label, input{
   display: block;
 }
@@ -62,11 +73,22 @@ input{
   box-sizing: border-box;
 }
 button{
-  background-color:aqua;
-  color: black;
-  border: 2.5px solid black;
+  background-color:var(--primary);
+  color:white;
+  padding: 6px 6px;
   border-radius: 5px;
   margin-top: 15px;
   font-family: poppins;
   cursor: pointer;
+}
+div.error{
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid var(--error);
+  background-color: lightpink;
+  color: var(--error);
+
+}
+input.error{
+  border: 2px solid var(--error);
 }
