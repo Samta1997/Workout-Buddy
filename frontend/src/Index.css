@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+:root{
+  --primary:green;
+  --error:red;
+}
+body{
+  background-color: aliceblue;
+  font-family: poppins;
+  margin:0px;
+}
+header{
+  background-color:skyblue;
+}
+header .container{
+  max-width: 1200px;
+  margin: 0 auto;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+}
+header a{
+  text-decoration: none;
+  color: black;
+}
+.pages{
+  max-width: 1440px;
+  padding: 20px;
+  margin:0 auto;
+}
+.home{
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  gap: 100px;
+}
+.workout-details{
+  background-color:lightcyan;
+  font-family: poppins;
+  border-radius: 20px;
+  margin: 20px auto;
+  padding: 20px 40px;
+  position: relative;
+  box-shadow: 5px 5px lightblue;
+}
+.workout-details h4{
+  color: var(--primary);
+  font-size: 20px;
+}
+.workout-details p{
+  font-size: 14px;
+}
+label, input{
+  display: block;
+}
+input{
+  margin-top: 8px;
+  margin-bottom: 20px;
+  padding: 5px;
+  width: 100%;
+  border: 2.5px solid lightblue;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+button{
+  background-color:aqua;
+  color: black;
+  border: 2.5px solid black;
+  border-radius: 5px;
+  margin-top: 15px;
+  font-family: poppins;
+  cursor: pointer;
+}
