@@ -1,2 +1,2 @@
 # Workout-Buddy
-Workout Buddy is used to add delete workout exercises. Which contains information like number of reps, load and title.
+Workout Buddy a fitness related web application is developed using MERN stack. In this application you can store your daily workout routine and see whenever you want. It provide functionality for adding your workout data like exercise name, load that you have used for that exercise and number of repitition done. It also provide functionality for deleting the exercise. For accessing your data you need to login.
