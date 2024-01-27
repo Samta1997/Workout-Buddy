@@ -1,8 +1,10 @@
 const mongoose=require('mongoose')
-const Workout=require('../model/model')
+const Workout=require('../model/workoutModel')
+const user=require('../model/userModel')
 
 const getWorkout=async(req,res)=>{
-    const workout=await Workout.find({}).sort({createdAt:-1})
+    const user_id=req.user._id
+    const workout=await Workout.find({user_id}).sort({createdAt:-1})
     res.status(200).json(workout)
 }
 
@@ -20,6 +22,7 @@ const getSingleWorkout=async(req, res)=>{
 
 const createWorkout=async(req,res)=>{
     const {title,load, reps}=req.body;
+    const user_id=req.user._id
 
     let emptyfield=[]
     if(!title){
@@ -36,7 +39,7 @@ const createWorkout=async(req,res)=>{
     }
 
     try{
-        const workout=await Workout.create({title, load, reps})
+        const workout=await Workout.create({title, load, reps, user_id})
         res.status(200).json(workout);
     }
     catch(error){

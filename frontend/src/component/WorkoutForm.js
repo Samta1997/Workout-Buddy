@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useWorkoutContext } from '../hooks/useWorkoutContext'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 const WorkoutForm = () => {
     const{dispatch}=useWorkoutContext()
+    const {user}=useAuthContext()
     const[title, setTitle]=useState("")
     const[reps, setReps]=useState("")
     const[load, setLoad]=useState("")
@@ -11,13 +13,19 @@ const WorkoutForm = () => {
 
     const formHandler=async(e)=>{
         e.preventDefault();
+
+        if(!user){
+            setError('You must be logged in')
+            return
+        }
         const workout={title, reps, load}
         
         const response=await fetch('api/workout', {
             method:'POST',
             body:JSON.stringify(workout),
             headers:{
-                'Content-Type':'application/json'
+                'Content-Type':'application/json',
+                'Authorization':`Bearer ${user.token}`
             }
         })
 
@@ -57,7 +65,7 @@ const WorkoutForm = () => {
          className={emptyfield.includes('reps')?'error':''}
         />
 
-        <label>Load</label>
+        <label>Load(in kg)</label>
         <input type='number' 
         onChange={(e)=>setLoad(e.target.value)} 
         value={load} 
