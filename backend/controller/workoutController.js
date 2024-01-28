@@ -1,6 +1,5 @@
 const mongoose=require('mongoose')
 const Workout=require('../model/workoutModel')
-const user=require('../model/userModel')
 
 const getWorkout=async(req,res)=>{
     const user_id=req.user._id
