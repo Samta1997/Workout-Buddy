@@ -3,6 +3,8 @@ import { useWorkoutContext } from '../hooks/useWorkoutContext'
 import { MdDeleteForever } from "react-icons/md";
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { useAuthContext } from '../hooks/useAuthContext';
+import BASE_URI from '../helper/helper';
+
 
 const WorkoutDetails = ({workout}) => {
     const {dispatch}=useWorkoutContext();
@@ -14,7 +16,7 @@ const WorkoutDetails = ({workout}) => {
       if(!user){
         return 
       }
-      const response= await fetch('/api/workout/'+ workout._id,{
+      const response= await fetch(`${BASE_URI}api/workout/`+ workout._id,{
         method:'DELETE',
         headers:{
           'Authorization':`Bearer ${user.token}` 
