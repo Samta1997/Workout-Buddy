@@ -14,6 +14,10 @@ app.use((req, res, next)=>{             //this will be executed for every reques
     console.log(req.path, req.method);
     next();
 })
+app.get('/',()=>{
+    console.log('Welcome to Workout buddy server')
+
+})
 app.use('/api/workout',workoutRoutes); //for setting workout routes
 app.use('/api/user',userRoutes);  //for setting user routes
 
