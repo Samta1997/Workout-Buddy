@@ -14,8 +14,9 @@ app.use((req, res, next)=>{             //this will be executed for every reques
     console.log(req.path, req.method);
     next();
 })
-app.get('/',()=>{
-    console.log('Welcome to Workout buddy server')
+app.get('/',(req, res)=>{
+    res.send('Welcome to Workout buddy server')
+    console.log('response sent')
 
 })
 app.use('/api/workout',workoutRoutes); //for setting workout routes
